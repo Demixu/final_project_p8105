@@ -9,3 +9,35 @@ output: html_document
 library(tidyverse)
 library(readr)
 ```
+
+
+```{r}
+# import data for HIV neighborhodd data 
+HIV_neighborhodd_df = read.csv("./HIV_AIDS_Diagnoses_by_Neighborhood__Sex__and_Race_Ethnicity.csv")
+
+# clean dataset
+HIV_neighborhodd_df %>% 
+  janitor::clean_names() %>% 
+  arrange(neighborhood_u_h_f, year, sex) 
+
+```
+
+```{r}
+
+# import annual HIV report data
+HIV_annual_report = read.csv("./DOHMH_HIV_AIDS_Annual_Report.csv")
+
+HIV_annual_report %>% 
+  janitor::clean_names() %>% 
+  arrange(borough, year)
+
+```
+
+
+```{r}
+# import HIV locations data
+testing_locations = read.csv("./HIV_Testing_Locations.csv") 
+
+testing_locations
+```
+
